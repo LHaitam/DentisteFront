@@ -20,7 +20,7 @@ import {
   faWallet,
   faBoxesStacked,
   faGear,
-  faSignInAlt,  
+  faSignInAlt,
   faMoneyBill,
   faCalculator,
   faListCheck,
@@ -49,7 +49,7 @@ const menuGroups = [
       {
         icon: <FontAwesomeIcon icon={faUser} />,
         label: "Patients",
-        route: "/profile",
+        route: "/patients",
       },
       {
         icon: <FontAwesomeIcon icon={faImage} />,
@@ -114,16 +114,16 @@ const menuGroups = [
       {
         icon: <FontAwesomeIcon icon={faGear} />,
         label: "Paramètres",
-        route: "/parametres",
+        route: "/",
       },
-      {
-        icon: <FontAwesomeIcon icon={faSignInAlt} />,
-        label: "Authentication",
-        route: "#",
-        children: [
-          { label: "Sign In", route: "/auth/signin" },
-        ],
-      },
+      // {
+      //   icon: <FontAwesomeIcon icon={faSignInAlt} />,
+      //   label: "Authentication",
+      //   route: "#",
+      //   children: [
+      //     { label: "Sign In", route: "/auth/signin" },
+      //   ],
+      // },
     ],
   },
 ];
@@ -135,33 +135,16 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   return (
     <ClickOutside onClick={() => setSidebarOpen(false)}>
       <aside
-        className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden border-r border-stroke bg-white dark:border-stroke-dark dark:bg-gray-dark lg:static lg:translate-x-0 ${
-          sidebarOpen ? "translate-x-0 duration-300 ease-linear" : "-translate-x-full"
-        }`}
+        className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden border-r border-stroke bg-white dark:border-stroke-dark dark:bg-gray-dark lg:static lg:translate-x-0 ${sidebarOpen ? "translate-x-0 duration-300 ease-linear" : "-translate-x-full"
+          }`}
       >
         {/* Sidebar Header */}
         <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5 xl:py-10">
           <Link href="/">
-            <Image
-              width={176}
-              height={32}
-              src="/images/logo/logo-dark.svg"
-              alt="Logo"
-              priority
-              className="dark:hidden"
-              style={{ width: "auto", height: "auto" }}
-            />
-            <Image
-              width={176}
-              height={32}
-              src="/images/logo/logo.svg"
-              alt="Logo"
-              priority
-              className="hidden dark:block"
-              style={{ width: "auto", height: "auto" }}
-            />
+            <p className="text-4xl font-bold text-black dark:text-white dark:bg-gray-dark px-2 py-1 rounded-md">
+              ClouDent 🦷
+            </p>
           </Link>
-
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="block lg:hidden"
